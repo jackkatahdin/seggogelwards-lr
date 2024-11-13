@@ -4,10 +4,10 @@ from gpiozero import Motor
 
 app = Flask(__name__)
 
-motorFR = Motor(14, 15)
-motorFL = Motor(17, 18)
-motorBR = Motor(24, 25)
-motorBL = Motor(7, 8)
+motorFR = Motor(forward=14, backward=15, enable=13)
+motorFL = Motor(forward=17, backward=27, enable=12)
+motorBR = Motor(forward=24, backward=25, enable=18)
+motorBL = Motor(forward=7, backward=8, enable=19)
 
 @app.route("/forward_turn", methods=["POST"])
 def forward_turn():
