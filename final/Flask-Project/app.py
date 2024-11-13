@@ -18,6 +18,33 @@ def forward_turn():
     motorBL.forward()
     return "ok"
 
+@app.route("/backward_turn", methods=["POST"])
+def backward_turn():
+    
+    motorFR.backward()
+    motorFL.backward()
+    motorBR.backward()
+    motorBL.backward()
+    return "ok"
+
+@app.route("/right_turn", methods=["POST"])
+def right_turn():
+    
+    motorFR.backward()
+    motorFL.forward()
+    motorBR.backward()
+    motorBL.forward()
+    return "ok"
+
+@app.route("/left_turn", methods=["POST"])
+def left_turn():
+    
+    motorFR.forward()
+    motorFL.backward()
+    motorBR.forward()
+    motorBL.backward()
+    return "ok"
+
 @app.route("/stop", methods=["POST"])
 def stop():
     
@@ -27,15 +54,6 @@ def stop():
     motorBL.stop()
     return "ok"
 
-
-@app.route("/backward_turn", methods=["POST"])
-def backward_turn():
-    
-    motorFR.backward()
-    motorFL.backward()
-    motorBR.backward()
-    motorBL.backward()
-    return "ok"
 
 @app.route("/", methods=["GET"])
 def home():
